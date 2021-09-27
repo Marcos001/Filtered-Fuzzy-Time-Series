@@ -1,0 +1,12 @@
+pandas
+seaborn
+plotly
+matplotlib
+scikit-learn
+ipython
+jupyter
+virtualenv
+jupyterlab
+EMD-signal
+fuzzy-c-means
+dtw
