@@ -15,3 +15,10 @@ The project already comes with a configured environment and can be run with `doc
 
 ### Project structure
 
+- **F-fts/**
+  - **data/**: datasets used
+  - **FTS/** : library with created model and state-of-the-art methods
+  - **index.R**: Validation index used to estimate amount fuzzy sets 
+  - **QE-Grid_Search_Alabama.ipynb**: Grid search in time series enrollments of Alabama
+  - 
+

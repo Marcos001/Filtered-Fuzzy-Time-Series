@@ -64,8 +64,6 @@ class FCMB:
         for j in range(self.mf.shape[0]):
 
             pert = []
-
-            # change where
             cj = 0
             if plano == 1: cj = self.mf[self.col].iloc[j]
             else: cj = self.mf[[self.col, self.col_imf]].iloc[j].values
@@ -73,9 +71,6 @@ class FCMB:
             num = self.dist(x_test, cj)
 
             for k in range(self.mf.shape[0]):
-
-                # change where
-
                 if plano == 1: ck = self.mf[self.col].iloc[k]
                 else: ck = self.mf[[self.col, self.col_imf]].iloc[k].values
 
@@ -98,7 +93,6 @@ class FCMB:
         '''
         calculate pertinence function and associate to cluster
         '''
-
         x = np.array(x)
         p = 0
         t = None
