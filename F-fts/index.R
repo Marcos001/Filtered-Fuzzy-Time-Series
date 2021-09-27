@@ -157,7 +157,6 @@ choose_index <- function(data, imfs.sel, limite = 20, file_save='score_indexs.cs
 	# create daframe 
 	X <- data.frame(data, imfs.sel)
 
-	# silhueta fuzzy -  melhor quando assume o valor máximo
 	scores_sf = c()
 	scores_xb = c()
 	scores_mpc = c()
@@ -200,9 +199,6 @@ choose_index <- function(data, imfs.sel, limite = 20, file_save='score_indexs.cs
     scores_si[indice] <- mean(ss[, 3])
     
     }
-
-
-	# ================ PLOT ================ #
 
 	#pdf('indices.pdf')
 	par(mfrow=c(3,3))
@@ -265,7 +261,7 @@ choose_index <- function(data, imfs.sel, limite = 20, file_save='score_indexs.cs
     all_scores <- matrix(c(scores_si, scores_sf, scores_xb, scores_mpc, scores_wli, scores_pbmf, scores_k), ncol=7, byrow=TRUE)
     colnames(all_scores) <- c(title.si, title.sf, title.xb, title.mpc, title.wli, title.ppbmf, title.k)
 
-	# # save scores_sf
+	# save scores_sf
 	write.csv(all_scores, file=file_save)
 
 }

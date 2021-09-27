@@ -23,7 +23,7 @@ class STFMV_Convencional_Lee:
     def __clustering_FCM(self):
 
         self.fcm = FCM(n_clusters=self.K, 
-                        m=2, max_iter=1000)
+                        m=2, max_iter=100)
         self.fcm.fit(self.X)
 
         # X[:,0] ts
@@ -189,7 +189,7 @@ class STFMV_Auto_Lee:
 
     def clustering_FCM(self):
 
-        self.fcm = FCM(n_clusters=self.C, m=2, max_iter=1000)
+        self.fcm = FCM(n_clusters=self.C, m=2, max_iter=100)
         self.fcm.fit(self.X)
 
         # X[:,0] ts

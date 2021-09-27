@@ -1,8 +1,8 @@
-
 import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-import matplotlib.pyplot as plt
 from dtw import dtw
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 plt.style.use('ggplot')
 
 class validation:
@@ -21,7 +21,6 @@ class validation:
         '''
         calculate regression metrics to measure prediction.
         '''
-
         mape = round(self.mean_absolute_percentage_error(np.array(_y_true), np.array(_y_pred)), decimal)
         mae = round(mean_absolute_error(_y_true, _y_pred), decimal)
         mse = round(mean_squared_error(_y_true, _y_pred), decimal)
@@ -103,7 +102,7 @@ class validation:
         ax[1].legend()
         
         if save:
-            plt.savefig('/home/marcos/forecasting.pdf', bbox_inches='tight')
+            plt.savefig('/home/ds/app/out/forecasting.pdf', bbox_inches='tight')
         
         plt.show()
 

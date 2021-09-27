@@ -3,3 +3,15 @@ This project brings a fuzzy time series model for the task of regression in time
 
 
 
+## Run
+
+The project already comes with a configured environment and can be run with `docker` and `make:`
+
+ -  Clone: `git clone https://github.com/Marcos001/Filtered-Fuzzy-Time-Series.git`
+ -  Run: 
+     -  `make run` (init container docker with project folder and data)
+     -  `make vlogs`
+         -  acess URL generate in logs of container docker: `http://127.0.0.1:8888/lab?token=...`
+
+### Project structure
+

@@ -8,5 +8,5 @@ jupyter
 virtualenv
 jupyterlab
 EMD-signal
-fuzzy-c-means
+fuzzy-c-means==0.0.5
 dtw
