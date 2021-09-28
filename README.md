@@ -1,6 +1,57 @@
 # Filtered Fuzzy Time Series
 This project brings a fuzzy time series model for the task of regression in time series that have great influences of stochastic components. The developed model was compared with the state of the art and achieved superior results. For more information, see the article [Using fuzzy clustering to address imprecision and uncertainty present in deterministic components of time series](xxx).
 
+The present work has its contribution in the fuzzification stage, pre-processing the series, eliminating noise, and components of high frequency and low information. Then the modeling of fuzzy sets is automatic and data distribution oriented.
+
+
+
+
+
+![Forecasting FTS](F-fts/data/images/forecasting_fts.png)
+
+Application of the model in the financial series TAIEX 1992 in (A), and in (B) the graphical display of the DTW metric to exemplify the alignment of the series with the prediction of the FTS model.
+
+
+
+### Usage Example
+
+#### Decomposition with Empirical Mode Decomposition (EMD)
+
+```python
+# decomposition: apply EMD to get IMFs
+emd = EMD()
+imfs = emd.emd(time_series)
+```
+
+
+
+![](F-fts/data/images/step_one.png)
+
+### Select deterministic components
+
+```python
+# Select MFIs without trending and noise behavior 
+deterministic_time_series = imfs[1]+imfs[2]
+```
+
+
+
+#### Apply in model to fit and forecasting
+
+```python
+from FTS.Models.MV_Chen import STFMV_Convencional_Chen
+
+fuzzy_sets = 7
+
+model = STFMV_Convencional_Chen()
+model.fit(X=[[time_series, deterministic_time_series]], k=fuzzy_sets)
+model.predict()
+```
+
+
+
+![](F-fts/data/images/step_two.png)
+
 
 
 ## Run
@@ -20,6 +71,15 @@ The project already comes with a configured environment and can be run with `doc
   - **FTS/** : library with created model and state-of-the-art methods;
   - **index.R**: Validation index used to estimate amount fuzzy sets;
   - **EstimeAmountFuzzySets.ipynb**: Estimate amount fuzzy sets with validation index;
+  - **IlustrativeExample.ipynb**: Example how to run the proposed model in the series used in the state of the art;
   - **QE-Grid_Search_Alabama.ipynb**: Grid search to estimate amount fuzzy sets  in time series enrollments of Alabama;
   - **QE-Grid_Search_DAX.ipynb** Grid search to estimate amount fuzzy sets in time series Dax sock index;
+  - **QE-Grid_Search_TAIEX_1992.ipynb**:  Grid search to estimate amount fuzzy sets in time series TAIEX 1992 sock index;
+  - **State_Art_Alabama.ipynb**: Proposed method and state of the art applied to alabama enrollment series;
+  - **State_Art_DAX.ipynb**: Proposed method and state of the art applied to DAX stock index serie;
+  - **State_Art_TAIEX_1992.ipynb** Proposed method and state of the art applied to TAIEX 1992 stock index serie
+
+### Contact
+
+Work developed by researchers: Marcos Vinícius dos Santos Ferreira (marcosvsf@ufba.br), Ricardo Rios (ricardoar@ufba.br), Tatiane Rios (tatiane.nogueira@ufba.br) and Rodrigo Mello mello@icmc.usp.br).
 
