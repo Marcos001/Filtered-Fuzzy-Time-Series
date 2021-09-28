@@ -140,7 +140,6 @@ class Wang2013_Chen:
         intervals = []
 
         if (self.K % 2) == 0: 
-            #print('IN PAR')
             intervals.append(self.U[0])
             for i in range(self.C-1):
                 intervals.append(self.list_prototypes[i]) # add median
@@ -249,9 +248,6 @@ class Wang2013_Chen:
 
         self.__build_intervals()
 
-        #self.summary()
-        ''' ============================'''
-
         # define partition of train and test
         if train == 1:
             self.partition = len(self.ts_array) - 1
@@ -265,7 +261,6 @@ class Wang2013_Chen:
         self.flrg = self.create_rules()
 
 
-    ''' ======== DEFUZZIFICAÇÂO =============='''
     def MidPoint(self, ):
         '''
         Defuzzification with Midpoint create by [1]

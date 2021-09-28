@@ -5,7 +5,7 @@ class UniverseDiscourse:
 
 	def __init__(self,):
 		'''
-		Particiona ro universo do discurso.
+		Partition the universe of discourse.
 		split_for_size: particionar por quantidade de intervalos com tamanhos iguais.
 		'''
 		pass
@@ -68,8 +68,6 @@ class UniverseDiscourse:
 			self.U = [np.min(ts) - d1,  np.max(ts) + d2]
 		else:
 			self.U = [np.min(ts),  np.max(ts)]
-
-		print('Universo do Discurso:', self.U)
 		
 		self.support = (self.U[1] - self.U[0]) / self.size
 

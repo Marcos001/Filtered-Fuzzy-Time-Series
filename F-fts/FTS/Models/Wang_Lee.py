@@ -137,8 +137,7 @@ class Wang2013_Lee:
 
         intervals = []
 
-        if (self.K % 2) == 0: # se ele é par
-            #print('IN PAR')
+        if (self.K % 2) == 0: 
             intervals.append(self.U[0])
             for i in range(self.C-1):
                 intervals.append(self.list_prototypes[i]) # add median
@@ -185,13 +184,12 @@ class Wang2013_Lee:
 
     def fuzzify_by_intervals(self, value):
         '''
-        obtêm o maior grau de pertinência de um valor crips
+        Obtain the highest degree of relevance of a crips value
         '''
 
         for i in range(self.df_mf.shape[0]):
 
             if self.df_mf['a'].iloc[i] <= value <= self.df_mf['b'].iloc[i]:
-                #print('value {} with  {}'.format(value, self.df_mf['term'].iloc[i]))
                 return self.df_mf['term'].iloc[i]
 
     def create_ts_terms(self):

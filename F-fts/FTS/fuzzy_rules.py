@@ -33,22 +33,17 @@ class FirtOrder:
 
         for i in range(self.p_train - 1, self.df_fts.shape[0] - 1):
 
-            # valor da primeira observação f(t) para prever f(t+1)
             v_obs = df_fts[col].iloc[i]
-
-            # descrição linguística do termo f(t)
             t_ant = df_fts['term'].iloc[i]
 
-            # Caso 3 - se não possuir consequente
             if len(self.df_flrg[self.df_flrg[t_ant] == 0]) == self.size:
                 print('Sem consequentes!')
                 y_pred.append(float(df_gauss['m'][df_gauss['term'] == t_ant]))
                 y_true.append(df_fts[col].iloc[i + 1])
             else:
-                # caso 1 e 2
                 pred = []
                 for con in termos:
-                    if df_RLF[con][t_ant] == 1:  # possui consequente
+                    if df_RLF[con][t_ant] == 1:
                         pred.append(float(df_gauss['m'][df_gauss['term'] == con]))
                 y_pred.append(np.mean(pred))
                 y_true.append(df_fts[col].iloc[i + 1])
@@ -83,7 +78,7 @@ class FuzzyRules:
         self.p_train = int(df_fts.shape[0] * p_train)
         self.model_rules.train(df_fts, self.p_train)
 
-        print('Regras Criadas:')
+        print('Created rules:')
         print(self.model_rules.df_flrg)
 
     def inference(self, ):

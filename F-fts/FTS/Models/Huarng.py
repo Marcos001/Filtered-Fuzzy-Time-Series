@@ -1,19 +1,18 @@
-
-'''
-
-Effective lengths of intervals to improve forecasting in fuzzy time series
-
-# Model for defining the universe of discourse and partitioning of
-breaks
-
-'''
-
-import pandas as pd 
 import numpy as np
+import pandas as pd 
+import matplotlib.pyplot as plt
+
+plt.style.use('seaborn')
 
 class HUARNG_2001_DB:
 
 	def __init__(self,):
+		'''
+		Effective lengths of intervals to improve forecasting in fuzzy time series
+
+		# Model for defining the universe of discourse and partitioning of
+		breaks
+		'''
 		self.name_model = 'Model Huarng 2001 - distribution-based length' 
 		print('='*len(self.name_model))
 		print(self.name_model)
@@ -37,7 +36,7 @@ class HUARNG_2001_DB:
 
 	def choose_base_map_db(self, diff): 
 		'''
-		select the base of intervals for intervals distribuition based
+		Select the base of intervals for intervals distribuition based
 		'''
 		if diff >= 0.1 and diff <= 1.0: 
 			return 0.1 
@@ -53,7 +52,7 @@ class HUARNG_2001_DB:
 
 	def cumulative_distribution(self, diff, base):
 		'''
-		calcule as ocorrences of cumulative distribution
+		Calcule as ocorrences of cumulative distribution
 		'''
 		cd = {}
 		lim =  base*10
@@ -71,8 +70,6 @@ class HUARNG_2001_DB:
 		'''
 		cd: cumulative distribuition - dict
 		'''
-		import matplotlib.pyplot as plt
-		plt.style.use('seaborn')
 		x = list(cd.keys())
 		y = list(cd.values())
 		plt.figure(figsize=(12,8));
@@ -85,14 +82,13 @@ class HUARNG_2001_DB:
 
 class HUARNG_2001_AVG:
 
-	'''
-	determine the length of intervals based on the average.
-
-	Average-based: determines the base through the half of the first difference
-	putting on base of base mapping table.
-	'''
-
 	def __init__(self,):
+		'''
+		determine the length of intervals based on the average.
+
+		Average-based: determines the base through the half of the first difference
+		putting on base of base mapping table.
+	    '''
 		self.name_model = 'Model Huarng 2001 - average-based length' 
 		print('='*len(self.name_model))
 		print(self.name_model)
@@ -118,7 +114,7 @@ class HUARNG_2001_AVG:
 
 	def choose_base_map(self, diff_half):
 		'''
-		select the base of intervals for intervals averange based
+		Select the base of intervals for intervals averange based
 		'''
 		if diff_half >= 0.1 and diff_half <= 1.0:
 			return 0
@@ -134,7 +130,7 @@ class HUARNG_2001_AVG:
 
 	def average_based_length(self, diff_halt, base):
 		'''
-		calculate length of intervals
+		Calculate length of intervals
 		'''
 		abl = np.around(diff_halt, decimals=base)
 		return abl

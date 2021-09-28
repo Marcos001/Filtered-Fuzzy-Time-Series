@@ -3,14 +3,13 @@ from FTS.Evaluate.Validation import validation
 import numpy as np
 import pandas as pd
 
-''' ================================================================== '''
-''' ======================= FTS Forecasting Auto ===================== '''
-''' ================================================================== '''
-
 
 class Auto_MV_FCMB_CHEN:
 
     def __init__(self):
+        ''' ==========================================================
+            =============== FTS Forecasting Auto ===================== 
+            ========================================================== '''
         print('FTS Forecasting Auto Chen')
 
     def clustering_FCM(self):
@@ -261,11 +260,6 @@ class Auto_MV_FCMB_CHEN:
             return mape, mae, mse, rmse, dtw
 
 
-''' ================================================================== '''
-''' ======================= FTS Forecasting Auto ===================== '''
-''' ================================================================== '''
-
-
 class Auto_MV_FCMB_LEE:
 
     def __init__(self):
@@ -389,11 +383,10 @@ class Auto_MV_FCMB_LEE:
         return flrg
 
 
-
     def defuzzification_LEE(self, consequentes):
         """
         Step 8: Assigning weights.
-        consequentes: lista com os termos consequentes
+        consequentes: list with consequent terms
         return: defuzzyfied value
         """
 
@@ -406,6 +399,7 @@ class Auto_MV_FCMB_LEE:
         cons_midpoints = np.array(mid_points)
 
         return sum(weigths * cons_midpoints.T)
+
 
     def MidPoint_Weighted(self, ):
         '''

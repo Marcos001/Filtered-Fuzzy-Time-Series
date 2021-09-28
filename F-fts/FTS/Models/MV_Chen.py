@@ -51,7 +51,6 @@ class STFMV_Convencional_Chen:
         m: middle value
         sigma: statard desviation
         return: value of pertinence [0,1]
-        retorna o valor da pertinência
         """
         return np.exp(-((value - m) ** 2) / (sigma ** 2))
 
@@ -141,12 +140,6 @@ class STFMV_Convencional_Chen:
         return y_pred
 
 
-''' ================================================================== '''
-''' ======================= FTS Forecasting Auto ===================== '''
-''' ================================================================== '''
-
-
-
 class STFMV_Auto_Chen:
 
     def __init__(self):
@@ -157,8 +150,6 @@ class STFMV_Auto_Chen:
          - Uses the rules and defuzzification model proposed by Chen 1996
          - Performs the prediction of the linguistic term and numerical value
         '''
-
-    ''' ---------- Model sets ---------------- '''
 
     def clustering_FCM(self):
 
@@ -221,7 +212,7 @@ class STFMV_Auto_Chen:
         """
         modeling the Gaussian function for crip sets
         sets: Dictionary with each set {label0:[set0], label1:[set1],...,labelN:[setN]}
-        return: dataframe com os parâmetros da gaussiana de cada conjunto
+        return: dataframe with the Gaussian parameters of each set
         """
         parametros = []
 
@@ -284,14 +275,12 @@ class STFMV_Auto_Chen:
         pertinence (float), termo (string)
         }
         """
-
         perts = []
 
         for i in range(self.C):
 
             dici_resposta = {'p': self.gaussiana(value, m=self.mf['m'][i], sigma=self.mf['std'][i]),
                              't': self.mf['term'][i]}
-
             perts.append(dici_resposta)
 
             if verbose:
@@ -304,12 +293,10 @@ class STFMV_Auto_Chen:
             indice_find = int(df[df['p'] == max(df['p'])].index.values)
             return df['p'].iloc[indice_find], df['t'].iloc[indice_find]
 
-        # return daframe with all pertinences
         return df
 
 
     def fuzzify_ts(self):
-
         self.ts_terms = [self.fuzzify(value=self.ts_array[i], term=True)[1] for i in range(self.partition+1)]
 
 
@@ -318,12 +305,9 @@ class STFMV_Auto_Chen:
         :param ts_terms: time series with linguistics terms ([A1, A2, ..., AN])
         :return: base of rules
         '''
-
-        ''' creating dictionary to store relationship groups '''
-
+        # creating dictionary to store relationship groups
         flrg = {}
         for termo in set(self.mf['term']): flrg[termo] = []
-
 
         for i in range(self.partition):
             antecedente = self.ts_terms[i]
@@ -366,9 +350,8 @@ class STFMV_Auto_Chen:
         Defuzzification with Midpoint based by [1]
         forecasting term ans value
         :return: y_pred - vector of numerbs with prediction
-        '''
+        ''' 
         y_pred = []
-
         antecedente = self.ts_terms[self.partition]
 
         for i in range(len(self.ts_array) - self.partition):
@@ -404,7 +387,6 @@ class STFMV_Auto_Chen:
         association: str  - 'fuzzy' or 'crip'
           - method for association data to labels
         '''
-
         self.ts_array = np.array(ts_x)
         self.ts_imfs  = np.array(ts_y)
 
@@ -412,7 +394,6 @@ class STFMV_Auto_Chen:
         self.C = C
         self.method = association
 
-        # cluster with FCM
         self.clustering_FCM()
 
         self.__create_fuzzy_sets()
@@ -425,7 +406,6 @@ class STFMV_Auto_Chen:
         self.fuzzify_ts()
 
         self.flrg = self.create_rules()
-
 
 
     def summary(self,):

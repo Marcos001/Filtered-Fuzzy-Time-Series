@@ -1,16 +1,12 @@
 
-'''
-Defuzzification Methods
- [1] - Forecasting enrollments based on fuzzy time series
-'''
-
 import numpy as np
 
 class Defuzz:
 
     def __init__(self):
         '''
-         method
+        Defuzzification Methods
+            [1] - Forecasting enrollments based on fuzzy time series
         '''
 
     def MidPoint(self, ts_terms, flrg, md):
@@ -21,31 +17,23 @@ class Defuzz:
         :param mf(membership function): dict with terms of sets and yours midpoints (A1:midpoint,..., An:midpoint)
         :return: y_pred - vector of numerbs with prediction
         '''
-
         y_pred = []
 
         for i in range(ts_terms.shape[0] - 1):
-
-            # descrição linguística do termo f(t)
             antecedente = ts_terms[i]
-
-            # valor de previsão do instante
             y_pred_value = 0
 
             if len(flrg[antecedente]) == 0:
                 y_pred_value = md[antecedente]
-
             else:
                 pred = [md[consequente] for consequente in flrg[antecedente]]
                 y_pred_value = np.mean(pred)
-
             y_pred.append(y_pred_value)
 
         return y_pred
 
 
     def MidPointAuto(self, actual_value, flrg, md, predictor, forecasting_size=10):
-
         y_true = []
         y_pred = []
 

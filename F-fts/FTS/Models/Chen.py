@@ -1,7 +1,3 @@
-'''
-Chen model 1996
-Forecasting enrollments based on fuzzy time series
-'''
 import pandas as pd
 import numpy as np
 from FTS.Evaluate.Validation import validation
@@ -10,6 +6,10 @@ from FTS.Evaluate.Validation import validation
 class Chen1996:
 
     def __init__(self, ):
+        '''
+        Chen model 1996
+        Forecasting enrollments based on fuzzy time series
+        '''
         self.name_model = 'Chen 1996 model'
         print(self.name_model)
 
@@ -73,7 +73,7 @@ class Chen1996:
 
     def pertinence(self, x, a, m, b):
         '''
-        calculate pertinence of value x with triangular function
+        Calculate pertinence of value x with triangular function
         '''
         if x >= a and x < m:
             return (x - a) / (m - a)
@@ -94,7 +94,7 @@ class Chen1996:
 
     def fuzzify_sets(self, value, only_term=True):
         '''
-        obtain the highest degree of relevance of a crips value
+        Get the highest degree of relevance of a crips value
         '''
         df_res = {'term': '404', 'pertinence': 0}
 
@@ -126,13 +126,12 @@ class Chen1996:
         '''
 
         self.create_ts_terms()
-        '''  
-        creating dictionary to store relationship groups
-        '''
+         
+        # creating dictionary to store relationship groups
         flrg = {}
         for termo in set(self.df_mf['term']): flrg[termo] = []
 
-        ''' checks relationships (Antecedent -> Consequent ) and groups on terms '''
+        # checks relationships (Antecedent -> Consequent ) and groups on terms 
         for i in range(self.partition):
             antecedente = self.ts_terms[i]
             consequente = self.ts_terms[i + 1]
@@ -151,18 +150,14 @@ class Chen1996:
         '''
 
         y_pred = []
-
         for i in range(self.partition):
             antecedente = self.ts_terms[i]
             y_pred_value = 0
-
             if len(self.flrg[antecedente]) == 0:
                 y_pred_value = self.md[antecedente]
-
             else:
                 pred = [self.md[consequente] for consequente in self.flrg[antecedente]]
                 y_pred_value = np.mean(pred)
-
             y_pred.append(y_pred_value)
 
         return y_pred
@@ -176,12 +171,8 @@ class Chen1996:
         forecasting term ans value
         :return: y_pred - vector of numerbs with prediction
         '''
-
         y_pred = []
-
-        # descrição linguística do termo f(t)
         antecedente = self.ts_terms[self.partition]
-
 
         for i in range(len(self.ts_terms) - self.partition):
 
@@ -262,12 +253,9 @@ class Chen1996:
             y_true = self.ts_array[1:]
             y_pred = self.MidPoint()
 
-            # visualize
             mape, mae, mse, rmse, dtw = validation().validation_forecasting(_y_true=y_true,
                                                                        _y_pred=y_pred, plot=plot, decimal=2, show_metrics=SM)
             return mape, mae, mse, rmse, dtw
-
-        # forecasting in test partition
         else:
             y_true = self.ts_array[self.partition:]
             y_pred = self.MidPointInTest()

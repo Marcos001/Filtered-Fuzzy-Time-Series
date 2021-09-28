@@ -45,15 +45,13 @@ def gaussiana(x, m, sigma, max_degree=None):
     x: value to get pertinence
     m: mean value
     sigma: sigma
-    
-    retorna o valor da pertinência
     """
     return np.exp(-((x-m)**2)/(sigma**2))
 
 
 def get_pertinences(x, _para, desc=False, verbose=False):
     """
-    x: valor crip a ser calculado a pertinência
+    x: crip value to be calculated for membership
     _para: parameters of each membership function
     
     desc (False): All membership values belonging to the N groups {type df pandas}
@@ -61,7 +59,6 @@ def get_pertinences(x, _para, desc=False, verbose=False):
      membership (float), term (string)
     }
     """
-    
     perts = []
     
     for i in range(C):
@@ -124,7 +121,6 @@ def create_params_gaussiana(sets, log=False):
     return pd.DataFrame(parametros)
 
 
-
 def rebuild_fuzzy_sets(sets, log=False):
     """
     modeling the Gaussian function for crip sets
@@ -147,7 +143,6 @@ def rebuild_fuzzy_sets(sets, log=False):
         parametros.append(dici)
     
     return pd.DataFrame(parametros)
-
 
 
 def silhueta_fcm(data, m=2):
@@ -175,8 +170,6 @@ def find_k(df_scores, ini = 3):
     for i in range(ini, len(df_scores)+ini):
         if _max_score == df_scores[i]: return i, _max_score
         
-
-''' ======================== PLOTAGEM =============================='''
 
 def plot_forecasting_and_ts(_df_fts, _col, _y_pred, _p_train, _indices):
     plt.figure(figsize=(12,8))
@@ -227,10 +220,7 @@ def visualize_gaussianas_cluster(df_fts, col, col_imf, u, fcm_centers, fcm_label
     ax.set_xlabel('obs TS')
     ax.set_ylabel('imf')
 
-    '''
-    visualization of Gaussian membership functions on observations
-    '''
-
+    # visualization of Gaussian membership functions on observations
     ax = fig.add_subplot(122)
     for i in range(df_fts.shape[0]):
         for j in range(grupos):
@@ -267,12 +257,9 @@ def plot_imfs(ts, array_imfs, n_row=2, fs=(20,20)):
         ax = fig.add_subplot(n_row,n_col, i+1)
         ax.plot(array_imfs[i-1])
         ax.set_title('IMF {}'.format(i-1))
-        if i == (array_imfs.shape[0]): ax.set_title('Resíduo')
+        if i == (array_imfs.shape[0]): ax.set_title('Residue')
             
     plt.show()
-
-    
-''' ======================== VALIDAÇÂO =============================='''
 
 
 def mean_absolute_percentage_error(y_true, y_pred): 
