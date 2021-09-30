@@ -55,7 +55,7 @@ model.predict()
 
 ## Run
 
-The project already comes with a configured environment and can be run with `docker` and `make:`
+The project is available with a pre-configured environment, which can be installed by using `docker` and `make:`
 
  -  Clone: `git clone https://github.com/Marcos001/Filtered-Fuzzy-Time-Series.git`
  -  Run: 
