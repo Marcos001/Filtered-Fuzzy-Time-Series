@@ -13,7 +13,7 @@ Application of the model in the financial series TAIEX 1992 in (A), and in (B) t
 
 
 
-### Usage Example
+### Illustrative Example
 
 #### Decomposition with Empirical Mode Decomposition (EMD)
 
