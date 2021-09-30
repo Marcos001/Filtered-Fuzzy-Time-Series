@@ -1,7 +1,7 @@
 # Filtered Fuzzy Time Series
 This project brings a new fuzzy time series model for the task of regression in time series that have great influences of stochastic components. The developed model was compared with the state of the art and achieved superior results. For more information, see the article [Using fuzzy clustering to address imprecision and uncertainty present in deterministic components of time series](xxx).
 
-The main contribution of this work is focused on automatically modeling the fuzzification stage, by pre-processing the series, and eliminating noise and components of high frequency with low information. 
+The main contribution of this work is focused on automatically modeling the fuzzification stage, by pre-processing the series, and eliminating noise and components of high frequency with low information. Next, we show an application of our model in the financial series TAIEX 1992 (A), and the resultant plot from the DTW metric to exemplify the alignment of the expected series and the predicted one (B).
 
 
 
@@ -9,7 +9,6 @@ The main contribution of this work is focused on automatically modeling the fuzz
 
 ![Forecasting FTS](F-fts/data/images/forecasting_fts.png)
 
-Application of the model in the financial series TAIEX 1992 in (A), and in (B) the graphical display of the DTW metric to exemplify the alignment of the series with the prediction of the FTS model.
 
 
 
