@@ -102,7 +102,7 @@ class validation:
         ax[1].legend()
         
         if save:
-            plt.savefig('/home/ds/app/out/forecasting.pdf', bbox_inches='tight')
+            plt.savefig('forecasting.pdf', bbox_inches='tight')
         
         plt.show()
 
