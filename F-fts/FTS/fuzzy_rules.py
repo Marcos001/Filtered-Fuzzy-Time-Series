@@ -11,14 +11,14 @@ class FirtOrder:
 
     def train(self, df_fts, p_train):
         self.terms = sorted(set(df_fts['term']))
-        self.size = len(self.terms)  # quantidade de termos, conjuntos
+        self.size = len(self.terms) 
         self.df_flrg = pd.DataFrame(np.zeros([self.size, self.size], dtype=np.uint8), index=self.terms,
                                     columns=self.terms)
         self.create_rules(df_fts, p_train)
 
 
     def create_rules(self, df_fts, p_train):
-        # train
+        # fit
         for i in range(p_train):
             ANT = df_fts['term'].iloc[i]
             CON = df_fts['term'].iloc[i + 1]
@@ -37,7 +37,6 @@ class FirtOrder:
             t_ant = df_fts['term'].iloc[i]
 
             if len(self.df_flrg[self.df_flrg[t_ant] == 0]) == self.size:
-                print('Sem consequentes!')
                 y_pred.append(float(df_gauss['m'][df_gauss['term'] == t_ant]))
                 y_true.append(df_fts[col].iloc[i + 1])
             else:

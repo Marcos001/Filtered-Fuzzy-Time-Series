@@ -6,7 +6,7 @@ class UniverseDiscourse:
 	def __init__(self,):
 		'''
 		Partition the universe of discourse.
-		split_for_size: particionar por quantidade de intervalos com tamanhos iguais.
+		split_for_size: partition by amount of equal sized intervals.
 		'''
 		pass
 		
@@ -57,7 +57,6 @@ class UniverseDiscourse:
 
 
 	def split_for_size(self, ts, size, d1=None, d2=None):
-
 		'''
 		create crip sets based length of interval
 		'''

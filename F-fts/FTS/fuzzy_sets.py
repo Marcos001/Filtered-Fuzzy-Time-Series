@@ -250,20 +250,17 @@ class FuzzySets:
 			print(X[i], '->', Y[i])
 		plt.show()
 			
-
-
-
-if __name__ == '__main__':
-
+def main_test():
 	conjuntos = [ list(np.arange(10,20,1)),[15, 25], [20, 30],[25, 27, 30, 35]]
-
-	# fz = FuzzySets(crip_sets=conjuntos, MF='tra')
-	# # print(fz.df_fuzzy_sets)
-	# # print('-'*30)
-	# # print(fz.fuzzificar(18))
 
 	fz = FuzzySets(crip_sets=conjuntos, MF='tra')
 	print(fz.df_fuzzy_sets)
 	print('-'*30)
 	print(fz.vector_crip_sets)
 	fz.plot_data()
+
+
+if __name__ == '__main__':
+	pass
+	#main_test()
+
