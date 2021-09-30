@@ -61,7 +61,7 @@ The project is available with a pre-configured environment, which can be install
  -  Run: 
      -  `make run` (init container docker with project folder and data)
      -  `make vlogs`
-         -  acess URL generate in logs of container docker: `http://127.0.0.1:8888/lab?token=...`
+         -  acess the URL address generated in the logs showing the container docker: `http://127.0.0.1:8888/lab?token=...`
 
 ### Project structure
 
