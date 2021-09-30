@@ -1,7 +1,7 @@
 # Filtered Fuzzy Time Series
 This project brings a new fuzzy time series model for the task of regression in time series that have great influences of stochastic components. The developed model was compared with the state of the art and achieved superior results. For more information, see the article [Using fuzzy clustering to address imprecision and uncertainty present in deterministic components of time series](xxx).
 
-The present work has its contribution in the fuzzification stage, pre-processing the series, eliminating noise, and components of high frequency and low information. Then the modeling of fuzzy sets is automatic and data distribution oriented.
+The main contribution of this work is focused on automatically modeling the fuzzification stage, by pre-processing the series, and eliminating noise and components of high frequency with low information. 
 
 
 
