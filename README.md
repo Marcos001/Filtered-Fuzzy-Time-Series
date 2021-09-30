@@ -66,19 +66,19 @@ The project is available with a pre-configured environment, which can be install
 ### Project structure
 
 - **F-fts/**
-  - **data/**: datasets used;
-  - **FTS/** : library with created model and state-of-the-art methods;
-  - **index.R**: Validation index used to estimate amount fuzzy sets;
-  - **EstimeAmountFuzzySets.ipynb**: Estimate amount fuzzy sets with validation index;
-  - **IlustrativeExample.ipynb**: Example how to run the proposed model in the series used in the state of the art;
-  - **QE-Grid_Search_Alabama.ipynb**: Grid search to estimate amount fuzzy sets  in time series enrollments of Alabama;
-  - **QE-Grid_Search_DAX.ipynb** Grid search to estimate amount fuzzy sets in time series Dax sock index;
-  - **QE-Grid_Search_TAIEX_1992.ipynb**:  Grid search to estimate amount fuzzy sets in time series TAIEX 1992 sock index;
-  - **State_Art_Alabama.ipynb**: Proposed method and state of the art applied to alabama enrollment series;
-  - **State_Art_DAX.ipynb**: Proposed method and state of the art applied to DAX stock index serie;
-  - **State_Art_TAIEX_1992.ipynb** Proposed method and state of the art applied to TAIEX 1992 stock index serie
+  - **data/**: analyzed datasets;
+  - **FTS/** : libraries with our and state-of-the-art methods;
+  - **index.R**: Validation index used to estimate the amount of fuzzy sets;
+  - **EstimeAmountFuzzySets.ipynb**: Estimated amount of fuzzy sets with validation index;
+  - **IlustrativeExample.ipynb**: Example how to run the proposed model in the series used in the state-of-the-art;
+  - **QE-Grid_Search_Alabama.ipynb**: Grid search to estimate the amount of fuzzy sets in the time series "enrollments of Alabama";
+  - **QE-Grid_Search_DAX.ipynb** Grid search to estimate the amount of fuzzy sets in the time series "Dax stock index";
+  - **QE-Grid_Search_TAIEX_1992.ipynb**: Grid search to estimate the amount of fuzzy sets in the time series "TAIEX 1992 stock index";
+  - **State_Art_Alabama.ipynb**: Proposed and state-of-the-art methods applied to "Alabama enrollment";
+  - **State_Art_DAX.ipynb**: Proposed and state-of-the-art methods applied to "DAX stock index";
+  - **State_Art_TAIEX_1992.ipynb**: Proposed and state-of-the-art methods applied to "TAIEX 1992 stock index".
 
 ### Contact
 
-Work developed by researchers: Marcos Vinícius dos Santos Ferreira (marcosvsf@ufba.br), Ricardo Rios (ricardoar@ufba.br), Tatiane Rios (tatiane.nogueira@ufba.br) and Rodrigo Mello mello@icmc.usp.br).
+Work developed by the following researchers: Marcos Vinícius dos Santos Ferreira (marcosvsf@ufba.br), Ricardo Rios (ricardoar@ufba.br), Tatiane Rios (tatiane.nogueira@ufba.br) and Rodrigo Mello (mello@icmc.usp.br).
 
