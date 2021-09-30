@@ -26,7 +26,7 @@ imfs = emd.emd(time_series)
 
 ![](F-fts/data/images/step_one.png)
 
-### Select deterministic components
+#### Select deterministic components
 
 ```python
 # Select MFIs without trending and noise behavior 
