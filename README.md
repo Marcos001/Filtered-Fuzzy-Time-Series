@@ -80,5 +80,5 @@ The project is available with a pre-configured environment, which can be install
 
 ### Contact
 
-Work developed by the following researchers: Marcos Vinícius dos Santos Ferreira (marcosvsf@ufba.br), Ricardo Rios (ricardoar@ufba.br), Tatiane Rios (tatiane.nogueira@ufba.br) and Rodrigo Mello (mello@icmc.usp.br).
+Work developed by the following researchers: Marcos Vinícius dos Santos Ferreira (marcosvsf@ufba.br), Ricardo Rios (ricardoar@ufba.br), Tatiane Rios (tatiane.nogueira@ufba.br), and Rodrigo Mello (mello@icmc.usp.br).
 
