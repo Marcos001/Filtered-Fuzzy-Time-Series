@@ -26,7 +26,7 @@ imfs = emd.emd(time_series)
 
 ![](F-fts/data/images/step_one.png)
 
-#### Select deterministic components
+#### Select the deterministic components
 
 ```python
 # Select MFIs without trending and noise behavior 
@@ -35,7 +35,7 @@ deterministic_time_series = imfs[1]+imfs[2]
 
 
 
-#### Apply in model to fit and forecasting
+#### Model adjustment and forecast
 
 ```python
 from FTS.Models.MV_Chen import STFMV_Convencional_Chen
